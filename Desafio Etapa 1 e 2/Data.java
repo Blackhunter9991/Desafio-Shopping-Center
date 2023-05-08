@@ -4,10 +4,6 @@ public class Data {
     private int ano;
 
     public Data(int dia, int mes, int ano) {
-        this.dia = dia;
-        this.mes = mes;
-        this.ano = ano;
-        validarData();
     }
 
     public int getDia() {
@@ -23,38 +19,22 @@ public class Data {
     }
 
     public void validarData() {
-        int dia = getDia();
-        int mes = getMes();
-        int ano = getAno();
         setTods();
-        if ((verificaAnoBissexto()) && mes == 2 && dia <= 29) {
-            System.out.println("E ano bissexto\t " + getDia() + "/" + getMes() + "/" + getAno());
-            return;
-        } else {
+        if(verificaAnoBissexto() == false  && (getMes() == 2 && getDia() <= 29)) {
             erroDeEntrada();
-            System.out.println("nao e ano bissexto\t ");
+            System.out.println(" não ano bissexto");
             return;
         }
-        if ((mesesMenores(mes) && dia <= 30)) {
-            setDia(dia);
-            setMes(mes);
-            setAno(ano);
-            System.out.println("E ano valido\t " + getDia() + "/" + getMes() + "/" + getAno());
-
-        } else if(!mesesMenores(mes)) {
-            setDia(dia);
-            setMes(mes);
-            setAno(ano);
-
-        } else {
-            erroDeEntrada();
+        if ((mesesMenores(getMes()) && getDia() <= 30) || !mesesMenores(getMes())) {
+            System.out.println("Ano Valido\t " + getDia() + "/" + getMes() + "/" + getAno());
+        } else{
             System.out.println("Alguma coisa invalida\t ");
+            erroDeEntrada();
         }
     }
 
     public void setTods() {
-        if(condicaoDia(dia) && condicaoMes(mes)) {}
-        else {
+        if(!(condicaoDia(dia) && condicaoMes(mes))) {
             erroDeEntrada();
         }
     }

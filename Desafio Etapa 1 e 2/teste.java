@@ -5,7 +5,7 @@ public class teste {
         Scanner dInt = new Scanner(System.in);
         int loop;
         int aux = 0;
-        Data d1 = new Data(32, 2, 2021);
+        Data d1 = new Data(29, 2, 2011);
         System.out.println("Digite Tods as datas que tu quer:");
         loop = dInt.nextInt();
         while (aux < loop) {
