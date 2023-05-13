@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class teste {
     public static void main(String [] args){
         Scanner dig = new Scanner(System.in);
-        Data2 d1 = new Data2(0, 0, 0);
+        Data d1 = new Data(0, 0, 0);
         boolean b = d1.isValid(0, 0, 0);
         
         
@@ -15,7 +15,7 @@ public class teste {
         System.out.print("digite ano: ");
         d1.setAno(dig.nextInt());
 
-        System.out.print(d1);
+        System.out.println(d1);
 
        
       

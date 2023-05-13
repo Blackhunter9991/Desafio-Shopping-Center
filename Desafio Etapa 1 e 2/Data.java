@@ -4,6 +4,16 @@ public class Data {
     private int ano;
 
     public Data(int dia, int mes, int ano) {
+        if (isValid(dia, mes, ano)) {
+            this.dia = dia;
+            this.mes = mes;
+            this.ano = ano;
+        } else {
+            System.out.println("Data Invalida alterando para: 1/1/2000");
+            this.dia = 1;
+            this.mes = 1;
+            this.ano = 2000;
+        }
     }
 
     public int getDia() {
@@ -18,45 +28,6 @@ public class Data {
         return ano;
     }
 
-    public void validarData() {
-        setTods();
-        if (verificaAnoBissexto() == false && (getMes() == 2 && getDia() <= 29)) {
-            erroDeEntrada();
-            System.out.println(" não ano bissexto");
-            return;
-        }
-        if ((mesesMenores(getMes()) && getDia() <= 30) || !mesesMenores(getMes())) {
-            System.out.println("Ano Valido\t " + getDia() + "/" + getMes() + "/" + getAno());
-        } else {
-            System.out.println("Alguma coisa invalida\t ");
-            erroDeEntrada();
-        }
-    }
-
-    public void setTods() {
-        if (!(condicaoDia(dia) && condicaoMes(mes))) {
-            erroDeEntrada();
-        }
-    }
-
-    public boolean condicaoDia(int dia) {
-        return (dia > 0 && dia < 31);
-    }
-
-    public boolean condicaoMes(int mes) {
-        return (mes > 0 || mes < 13);
-    }
-
-    public void erroDeEntrada() {
-        setDia(1);
-        setMes(1);
-        setAno(2000);
-    }
-
-    public boolean mesesMenores(int mes) {
-        return (mes == 4 || mes == 6 || mes == 9 || mes == 11);
-    }
-
     public void setDia(int dia) {
         this.dia = dia;
     }
@@ -67,15 +38,47 @@ public class Data {
 
     public void setAno(int ano) {
         this.ano = ano;
-        validarData();
-    }
-
-    public String toString() {
-        return getDia() + "/" + getMes() + "/" + getAno();
+        validCalling();
     }
 
     public boolean verificaAnoBissexto() {
-        return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
+        boolean bissexto;
+        if (ano % 4 == 0 && (ano % 100 != 0 || ano % 400 == 0)) {
+            return bissexto = true;
+        } else {
+            return bissexto = false;
+        }
+    }
+
+    public void validCalling() {
+        if (!isValid(getDia(), getMes(), getAno())) {
+            setDia(1);
+            setMes(1);
+            setAno(2000);
+        }
+    }
+
+    public boolean isValid(int dia, int mes, int ano) {
+        if (dia < 1 || mes < 1 || mes > 12 || dia > 31) {
+            return false;
+        }
+        if (mes == 2) {
+            if (ano % 4 == 0 && (ano % 100 != 0 || ano % 400 == 0)) {
+                return dia <= 29;
+            } else {
+                return dia <= 28;
+            }
+
+        } else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+            return dia <= 30 && dia > 0;
+        } else {
+            return dia <= 31 && dia > 0;
+        }
+
+    }
+
+    public String toString() {
+        return "Data:" + getDia() + "/" + getMes() + "/" + getAno();
     }
 }
 
