@@ -3,40 +3,35 @@ public class Produto {
     private double preco;
     private Data dataProduto;
 
-
-    //Contrutor Produto
-
     public Produto(String nome, double preco,Data dataProduto){
         this.preco = preco;
         this.nome = nome;
         this.dataProduto = dataProduto;
     }
 
-    //Getters Produto
-
     public String getNome(){
         return nome;
     }
+
     public double getPreco(){
         return preco;
     }
+
     public Data getDataProduto(){
         return dataProduto;
     }
 
-    //Setters Produto
-
     public void setNome(String nome){
         this.nome = nome;
     }
+
     public void setPreco(double preco){
         this.preco = preco;
     }
+
     public void setDataProduto(Data dataProduto){
         this.dataProduto = dataProduto;
     }
-
-    //Métodos
 
     public String toString(){
         System.out.println("=====Detalhes do Produto=====\n"+"Nome: "+getNome());
@@ -55,11 +50,5 @@ public class Produto {
         }else {
             return false;
         }
-       
-        
-        
-
    }
-        
 }
-
