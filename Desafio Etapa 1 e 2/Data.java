@@ -20,21 +20,21 @@ public class Data {
 
     public void validarData() {
         setTods();
-        if(verificaAnoBissexto() == false  && (getMes() == 2 && getDia() <= 29)) {
+        if (verificaAnoBissexto() == false && (getMes() == 2 && getDia() <= 29)) {
             erroDeEntrada();
             System.out.println(" não ano bissexto");
             return;
         }
         if ((mesesMenores(getMes()) && getDia() <= 30) || !mesesMenores(getMes())) {
             System.out.println("Ano Valido\t " + getDia() + "/" + getMes() + "/" + getAno());
-        } else{
+        } else {
             System.out.println("Alguma coisa invalida\t ");
             erroDeEntrada();
         }
     }
 
     public void setTods() {
-        if(!(condicaoDia(dia) && condicaoMes(mes))) {
+        if (!(condicaoDia(dia) && condicaoMes(mes))) {
             erroDeEntrada();
         }
     }
@@ -58,7 +58,7 @@ public class Data {
     }
 
     public void setDia(int dia) {
-       this.dia = dia;
+        this.dia = dia;
     }
 
     public void setMes(int mes) {
