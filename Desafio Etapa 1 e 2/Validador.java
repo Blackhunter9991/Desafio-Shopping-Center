@@ -95,8 +95,8 @@ public class Validador{
 		//public boolean verificaAnoBissexto();
 		System.out.println(d1.verificaAnoBissexto() ? "[OK] Método Dia.verificaAnoBissexto()" : "[NOK] Método Dia.verificaAnoBissexto()");
 
-	/*
-		//// Verificação da classe Loja
+		/*
+		Verificação da classe Loja
 		Loja loja1 = new Loja ("E3", 5, e1, d1);
 		System.out.println("[OK] Classe Loja identificada (construtor com dois parâmetros)");
 

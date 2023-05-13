@@ -67,6 +67,7 @@ public class Data {
 
     public void setAno(int ano) {
         this.ano = ano;
+        validarData();
     }
 
     public String toString() {
